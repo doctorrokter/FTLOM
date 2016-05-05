@@ -1,0 +1,10 @@
+x86
+arm
+
+*.pro
+*.pri
+
+.project
+.cproject
+
+Makefile
