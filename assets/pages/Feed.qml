@@ -1,6 +1,7 @@
 import bb.cascades 1.4
 import '../sheets'
 import '../components'
+import '../style'
 
 Page {
     id: root
@@ -54,8 +55,27 @@ Page {
             listItemComponents: [
                 ListItemComponent {
                     type: 'header'
-                    Header {
-                        title: Qt.formatDate(new Date(ListItemData), 'dddd, d MMM yyyy');
+                    CustomListItem {
+                        maxHeight: ui.du(7.0)
+                        Container {
+                            horizontalAlignment: HorizontalAlignment.Fill
+                            verticalAlignment: VerticalAlignment.Fill
+                            background: Color.create('#DCDCDC')
+                            layout: DockLayout {}
+                            Container {
+                                verticalAlignment: VerticalAlignment.Center
+                                margin.leftOffset: ui.du(3.0)
+                                margin.rightOffset: ui.du(3.0)
+                                Label {
+                                    text: Qt.formatDate(new Date(ListItemData), 'dddd, d MMM yyyy')
+                                    textStyle.base: subtitleHeaderText.style
+                                }
+                            }
+                            
+                            attachedObjects: [
+                                SubtitleTextStyle { id: subtitleHeaderText }
+                            ]
+                        }
                     }
                 },
                 ListItemComponent {
@@ -63,26 +83,9 @@ Page {
                     CustomListItem {
                         
                         attachedObjects: [
-                            TextStyleDefinition {
-                                id: museoSubtitleText
-                                base: SystemDefaults.TextStyles.SubtitleText
-                                rules: FtlomFontFaceRule {}
-                                fontFamily: 'MuseoSans'
-                            },
-                            
-                            TextStyleDefinition {
-                                id: museoBodyText
-                                base: SystemDefaults.TextStyles.BodyText
-                                rules: FtlomFontFaceRule {}
-                                fontFamily: 'MuseoSans'
-                            },
-                            
-                            TextStyleDefinition {
-                                id: museoSmallText
-                                base: SystemDefaults.TextStyles.SmallText
-                                rules: FtlomFontFaceRule {}
-                                fontFamily: 'MuseoSans'
-                            }
+                            SubtitleTextStyle { id: subtitleItemText },
+                            BodyTextStyle { id: bodyItemText },
+                            SmallTextStyle { id: smallItemText }
                         ]
                         
                         Container {
@@ -120,19 +123,13 @@ Page {
                                     margin.leftOffset: ui.du(3.0)
                                     Label {
                                         text: ListItemData.artist.name
-                                        textStyle {
-                                            base: museoBodyText.style
-                                        }
-                                        textStyle.fontWeight: FontWeight.W500
+                                        textStyle.base: bodyItemText.style
                                         verticalAlignment: VerticalAlignment.Top
                                     }
                                     Label {
                                         text: ListItemData.title
                                         multiline: true
-                                        textStyle.fontWeight: FontWeight.W100
-                                        textStyle {
-                                            base: museoSubtitleText.style
-                                        }
+                                        textStyle.base: subtitleItemText.style
                                         verticalAlignment: VerticalAlignment.Bottom
                                         margin.topOffset: ui.du(5.0)
                                         autoSize.maxLineCount: 10
@@ -149,10 +146,7 @@ Page {
                                     text: Qt.formatTime(new Date(ListItemData.time), 'HH:mm');
                                     horizontalAlignment: HorizontalAlignment.Right
                                     verticalAlignment: VerticalAlignment.Top
-                                    textStyle {
-                                        base: museoSmallText.style
-                                    }
-                                    textStyle.fontWeight: FontWeight.W100
+                                    textStyle.base: smallItemText.style
                                 }
                             }
                         }
