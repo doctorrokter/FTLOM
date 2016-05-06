@@ -7,6 +7,10 @@ Sheet {
     property string link
     property string titleText
     
+    function defaultHTML() {
+        return '<html><head><title>Loading...</title></head><body>Loading...</body></html>';
+    }
+    
     Page {
         
         titleBar: FtlomTitleBar {
@@ -19,9 +23,9 @@ Sheet {
                 scrollRole: ScrollRole.Main
                 Container {
                     WebView {
+                        id: webView
                         url: link
-                        html: '<html><head><title>Loading...</title></head>' + 
-                              '<body>Loading...</body></html>'
+                        html: defaultHTML()
                         onLoadingChanged: {
                             if (loadRequest.status === WebLoadStatus.Succeeded) {
                                 activityIndicator.running = false;
@@ -55,5 +59,9 @@ Sheet {
                 }
             }
         ]
+    }
+    
+    onClosed: {
+        webView.html = defaultHTML();
     }
 }
