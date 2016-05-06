@@ -24,7 +24,7 @@ Page {
     ]
     
     titleBar: FtlomTitleBar {
-        titleText: 'Feed'
+        titleText: 'FEED'
     }
     
     Container {

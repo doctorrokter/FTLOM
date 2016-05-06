@@ -26,13 +26,12 @@ TabbedPane {
     }
     
     Tab {
-        title: qsTr('Artists') + Retranslate.onLocaleOrLanguageChanged
-        Page {
-            Container {
-                Label {
-                    text: qsTr('Second tab') + Retranslate.onLocaleOrLanguageChanged
-                }
-            }
-        }
+        title: qsTr('Track Artists') + Retranslate.onLocaleOrLanguageChanged
+        Artists {}
+    }
+    
+    Tab {
+        title: qsTr('Me')
+        Account {}
     }
 }

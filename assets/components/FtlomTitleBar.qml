@@ -1,4 +1,5 @@
 import bb.cascades 1.4
+import '../style'
 
 TitleBar {
     
@@ -17,26 +18,11 @@ TitleBar {
                 verticalAlignment: VerticalAlignment.Center
                 
                 text: qsTr(titleText)
-                textStyle {
-                    base: museoTitleText.style
-                }
-                textStyle.fontWeight: FontWeight.W800
-                textStyle.color: Color.White
+                textStyle.base: museoTitleText.style
             }
             
             attachedObjects: [
-                TextStyleDefinition {
-                    id: museoTitleText
-                    base: SystemDefaults.TextStyles.TitleText
-                    fontSize: FontSize.Large
-                    rules: [
-                        FontFaceRule {
-                            source: 'asset:///fonts/MuseoSansCyrl_2.otf'
-                            fontFamily: 'MuseoSans'
-                        }
-                    ]
-                    fontFamily: 'MuseoSans'
-                }
+                TitleTextStyle { id: museoTitleText }
             ]
         }
     }

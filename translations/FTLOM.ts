@@ -4,7 +4,7 @@
 <context>
     <name>WebSheet</name>
     <message>
-        <location filename="../assets/sheets/WebSheet.qml" line="48"/>
+        <location filename="../assets/sheets/WebSheet.qml" line="50"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18,12 +18,12 @@
     </message>
     <message>
         <location filename="../assets/main.qml" line="29"/>
-        <source>Artists</source>
+        <source>Track Artists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="33"/>
-        <source>Second tab</source>
+        <location filename="../assets/main.qml" line="34"/>
+        <source>Me</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
