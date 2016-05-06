@@ -20,6 +20,8 @@ Sheet {
                 Container {
                     WebView {
                         url: link
+                        html: '<html><head><title>Loading...</title></head>' + 
+                              '<body>Loading...</body></html>'
                         onLoadingChanged: {
                             if (loadRequest.status === WebLoadStatus.Succeeded) {
                                 activityIndicator.running = false;
