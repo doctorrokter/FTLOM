@@ -2,7 +2,7 @@ import bb.cascades 1.4
 
 TextStyleDefinition {
     base: SystemDefaults.TextStyles.TitleText
-    fontSize: FontSize.Large
+    fontSize: FontSize.Medium
     fontWeight: FontWeight.W800
     color: Color.White
     rules: [
