@@ -52,17 +52,9 @@ Page {
                                 margin.topOffset: ui.du(3.0)
                                 horizontalAlignment: HorizontalAlignment.Left
                                 verticalAlignment: VerticalAlignment.Center
-                                Container {
-                                    id: avatarContainer
-                                    minWidth: ui.du(10.0)
-                                    minHeight: ui.du(10.0)
-                                    maxWidth: ui.du(10.0)
-                                    maxHeight: ui.du(10.0)
-                                    WebView {
-                                        maxWidth: ui.du(10.0)
-                                        maxHeight: ui.du(10.0)
-                                        html: '<img src="' +  ListItemData.avatar + '" style="border-radius: 50%;"/>'
-                                    }
+
+                                Avatar {
+                                    imageSource: ListItemData.avatar
                                 }
                                 
                                 Container {

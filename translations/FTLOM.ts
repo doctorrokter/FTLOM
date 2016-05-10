@@ -2,9 +2,17 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>Artists</name>
+    <message>
+        <location filename="../assets/pages/Artists.qml" line="101"/>
+        <source>TRACK</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>WebSheet</name>
     <message>
-        <location filename="../assets/sheets/WebSheet.qml" line="50"/>
+        <location filename="../assets/sheets/WebSheet.qml" line="54"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
