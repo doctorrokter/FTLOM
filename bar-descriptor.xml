@@ -72,7 +72,8 @@
     <splashScreens>
        <image>splash.png</image>
     </splashScreens>
-    <author>Example Inc.</author>
+    <authorId>gYAAgJBERbiwoSHtjskM8WvopKU</authorId>
+    <author>Mikhail Chachkouski</author>
 
     <!--  Unique author ID assigned by signing authority. Required if using debug tokens. -->
     <!-- <authorId>ABC1234YjsnUk235h</authorId> -->
@@ -98,6 +99,9 @@
 
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>
+    <permission system="true">_sys_use_consumer_push</permission>
+    <permission>access_location_services</permission>
+    <permission>read_device_identifying_information</permission>
     <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
     <env var="CASCADES_THEME" value="default?primaryColor=0xE92130&amp;primaryBase=0xE92130"/>
 
