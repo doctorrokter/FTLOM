@@ -55,93 +55,14 @@ Page {
             listItemComponents: [
                 ListItemComponent {
                     type: 'header'
-                    CustomListItem {
-                        maxHeight: ui.du(7.0)
-                        Container {
-                            horizontalAlignment: HorizontalAlignment.Fill
-                            verticalAlignment: VerticalAlignment.Fill
-                            background: Color.create('#DCDCDC')
-                            layout: DockLayout {}
-                            Container {
-                                verticalAlignment: VerticalAlignment.Center
-                                margin.leftOffset: ui.du(3.0)
-                                margin.rightOffset: ui.du(3.0)
-                                Label {
-                                    text: Qt.formatDate(new Date(ListItemData), 'dddd, d MMM yyyy')
-                                    textStyle.base: subtitleHeaderText.style
-                                }
-                            }
-                            
-                            attachedObjects: [
-                                SubtitleTextStyle { id: subtitleHeaderText }
-                            ]
-                        }
+                    ListItemHeader {
+                        header: Qt.formatDate(new Date(ListItemData), 'dddd, d MMM yyyy')
                     }
                 },
                 ListItemComponent {
                     type: 'item'
-                    CustomListItem {
-                        
-                        attachedObjects: [
-                            SubtitleTextStyle { id: subtitleItemText },
-                            BodyTextStyle { id: bodyItemText },
-                            SmallTextStyle { id: smallItemText }
-                        ]
-                        
-                        Container {
-                            layout: DockLayout {}
-                            horizontalAlignment: HorizontalAlignment.Fill
-                            maxHeight: ui.du(50);
-                            
-                            
-                            Container {
-                                layout: StackLayout {
-                                    orientation: LayoutOrientation.LeftToRight
-                                }
-                                margin.leftOffset: ui.du(3.0)
-                                margin.rightOffset: ui.du(3.0)
-                                margin.bottomOffset: ui.du(3.0)
-                                margin.topOffset: ui.du(3.0)
-                                horizontalAlignment: HorizontalAlignment.Left
-                                verticalAlignment: VerticalAlignment.Center
-                                
-                                Avatar {
-                                    imageSource: ListItemData.artist.avatar
-                                }
-                                
-                                Container {
-                                    id: infoContainer
-                                    layout: DockLayout {}
-                                    margin.leftOffset: ui.du(3.0)
-                                    Label {
-                                        text: ListItemData.artist.name
-                                        textStyle.base: bodyItemText.style
-                                        verticalAlignment: VerticalAlignment.Top
-                                    }
-                                    Label {
-                                        text: ListItemData.title
-                                        multiline: true
-                                        textStyle.base: subtitleItemText.style
-                                        verticalAlignment: VerticalAlignment.Bottom
-                                        margin.topOffset: ui.du(5.0)
-                                        autoSize.maxLineCount: 10
-                                    }
-                                }
-                            }
-                            
-                            Container {
-                                horizontalAlignment: HorizontalAlignment.Right
-                                verticalAlignment: VerticalAlignment.Top
-                                margin.rightOffset: ui.du(3.0)
-                                margin.topOffset: ui.du(3.0)
-                                Label {
-                                    text: Qt.formatTime(new Date(ListItemData.time), 'HH:mm');
-                                    horizontalAlignment: HorizontalAlignment.Right
-                                    verticalAlignment: VerticalAlignment.Top
-                                    textStyle.base: smallItemText.style
-                                }
-                            }
-                        }
+                    ListItemFeed {
+                        feed: ListItemData
                     }
                 }
             ]
@@ -149,6 +70,17 @@ Page {
             attachedObjects: [
                 WebSheet {
                     id: webSheet
+                },
+                
+                ListScrollStateHandler {
+                    onScrollingChanged: {
+                        if (atEnd) {
+                            console.debug('end');
+//                            feed.forEach(function(f) {
+//                                feedArray.insert(f);
+//                            });
+                        }
+                    }
                 }
             ]
             
