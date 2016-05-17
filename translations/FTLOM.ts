@@ -2,6 +2,44 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>Account</name>
+    <message>
+        <location filename="../assets/pages/Account.qml" line="66"/>
+        <source>Your Artists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/Account.qml" line="82"/>
+        <source>Edit Notification Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/Account.qml" line="98"/>
+        <source>Share Us</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/Account.qml" line="114"/>
+        <source>Rate On BlackBerry World</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/Account.qml" line="130"/>
+        <source>Send Feedback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/Account.qml" line="146"/>
+        <source>Help Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/pages/Account.qml" line="162"/>
+        <source>Privacy</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Artists</name>
     <message>
         <location filename="../assets/pages/Artists.qml" line="101"/>
@@ -31,7 +69,7 @@
     </message>
     <message>
         <location filename="../assets/main.qml" line="34"/>
-        <source>Me</source>
+        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

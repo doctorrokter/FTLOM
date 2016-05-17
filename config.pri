@@ -46,6 +46,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl_2.otf) \
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl_3.otf) \
         $$quote($$BASEDIR/assets/img/ic_previous.png) \
+        $$quote($$BASEDIR/assets/img/image.gif) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/Account.qml) \
         $$quote($$BASEDIR/assets/pages/Artists.qml) \
@@ -65,6 +66,8 @@ config_pri_source_group1 {
 
     HEADERS += $$quote($$BASEDIR/src/applicationui.hpp)
 }
+
+INCLUDEPATH += $$quote($$BASEDIR/src)
 
 CONFIG += precompile_header
 

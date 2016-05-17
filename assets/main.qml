@@ -31,7 +31,7 @@ TabbedPane {
     }
     
     Tab {
-        title: qsTr('Me')
+        title: qsTr('Settings')
         Account {}
     }
 }
