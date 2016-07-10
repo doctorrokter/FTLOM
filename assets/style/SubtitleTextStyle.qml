@@ -4,5 +4,6 @@ TextStyleDefinition {
     base: SystemDefaults.TextStyles.SubtitleText
     rules: FtlomFontFaceRule {}
     fontFamily: 'MuseoSans'
-    fontWeight: FontWeight.W100
+    fontWeight: FontWeight.W300
+//    color: Color.create('#949494')
 }

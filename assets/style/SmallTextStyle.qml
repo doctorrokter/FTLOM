@@ -4,5 +4,6 @@ TextStyleDefinition {
     base: SystemDefaults.TextStyles.SmallText
     rules: FtlomFontFaceRule {}
     fontFamily: 'MuseoSans'
-    fontWeight: FontWeight.W100
+    fontWeight: FontWeight.W400
+    color: Color.create('#949494')
 }

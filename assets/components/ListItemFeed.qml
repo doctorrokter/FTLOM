@@ -38,7 +38,10 @@ CustomListItem {
                 margin.leftOffset: ui.du(3.0)
                 Label {
                     text: feed.artist.name
-                    textStyle.base: bodyItemText.style
+                    textStyle {
+                        base: bodyItemText.style
+//                        color: Application.themeSupport.theme.colorTheme.primaryBase
+                    }
                     verticalAlignment: VerticalAlignment.Top
                 }
                 Label {

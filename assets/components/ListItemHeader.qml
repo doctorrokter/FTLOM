@@ -5,11 +5,11 @@ CustomListItem {
     
     property string header: 'Header'
     
-    maxHeight: ui.du(7.0)
+    maxHeight: ui.du(6.0)
     Container {
         horizontalAlignment: HorizontalAlignment.Fill
         verticalAlignment: VerticalAlignment.Fill
-        background: Color.create('#DCDCDC')
+        background: Color.create('#E8E8E8')
         layout: DockLayout {}
         Container {
             verticalAlignment: VerticalAlignment.Center

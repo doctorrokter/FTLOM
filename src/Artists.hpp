@@ -9,7 +9,6 @@
 #define ARTISTS_HPP_
 
 #include <QtCore/QObject>
-#include "Http.hpp"
 
 class Artists : public QObject {
     Q_OBJECT
@@ -23,9 +22,6 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onArtists(const QString& info, bool success);
-
-private:
-    Http* m_http;
 };
 
 #endif /* ARTISTS_HPP_ */

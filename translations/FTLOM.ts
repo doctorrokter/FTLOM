@@ -42,7 +42,7 @@
 <context>
     <name>Artists</name>
     <message>
-        <location filename="../assets/pages/Artists.qml" line="115"/>
+        <location filename="../assets/pages/Artists.qml" line="103"/>
         <source>TRACK</source>
         <translation type="unfinished"></translation>
     </message>

@@ -9,7 +9,6 @@
 #define FEED_HPP_
 
 #include <QtCore/QObject>
-#include "Http.hpp"
 
 class Feed : public QObject {
     Q_OBJECT
@@ -23,9 +22,6 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onFeed(const QString& info, bool success);
-
-private:
-    Http* m_http;
 };
 
 

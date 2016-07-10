@@ -46,6 +46,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl_2.otf) \
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl_3.otf) \
         $$quote($$BASEDIR/assets/img/ic_previous.png) \
+        $$quote($$BASEDIR/assets/img/icon.png) \
         $$quote($$BASEDIR/assets/img/image.gif) \
         $$quote($$BASEDIR/assets/js/Feed.js) \
         $$quote($$BASEDIR/assets/js/Http.js) \

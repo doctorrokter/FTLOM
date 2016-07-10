@@ -103,6 +103,6 @@
     <permission>access_location_services</permission>
     <permission>read_device_identifying_information</permission>
     <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
-    <env var="CASCADES_THEME" value="default?primaryColor=0xE92130&amp;primaryBase=0xE92130"/>
+    <env var="CASCADES_THEME" value="default?primaryColor=0xEC3F4B&amp;primaryBase=0xEC3F4B"/>
 
 </qnx>
