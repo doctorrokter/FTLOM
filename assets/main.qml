@@ -16,6 +16,7 @@
 
 import bb.cascades 1.4
 import './pages'
+import 'js/Feed.js' as Feed;
 
 TabbedPane {
     showTabsOnActionBar: true

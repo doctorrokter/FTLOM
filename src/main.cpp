@@ -27,6 +27,9 @@ using namespace bb::cascades;
 
 Q_DECL_EXPORT int main(int argc, char **argv)
 {
+    qmlRegisterType<Feed>("com.chachkouski", 1, 0, "Feed");
+    qmlRegisterType<Artists>("com.chachkouski", 1, 0, "Artists");
+
     Application app(argc, argv);
 
     // Create the Application UI object, this is where the main.qml file

@@ -47,6 +47,9 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl_3.otf) \
         $$quote($$BASEDIR/assets/img/ic_previous.png) \
         $$quote($$BASEDIR/assets/img/image.gif) \
+        $$quote($$BASEDIR/assets/js/Feed.js) \
+        $$quote($$BASEDIR/assets/js/Http.js) \
+        $$quote($$BASEDIR/assets/js/Loading.js) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/Account.qml) \
         $$quote($$BASEDIR/assets/pages/Artists.qml) \
@@ -61,13 +64,18 @@ config_pri_assets {
 
 config_pri_source_group1 {
     SOURCES += \
+        $$quote($$BASEDIR/src/Artists.cpp) \
+        $$quote($$BASEDIR/src/Feed.cpp) \
+        $$quote($$BASEDIR/src/Http.cpp) \
         $$quote($$BASEDIR/src/applicationui.cpp) \
         $$quote($$BASEDIR/src/main.cpp)
 
-    HEADERS += $$quote($$BASEDIR/src/applicationui.hpp)
+    HEADERS += \
+        $$quote($$BASEDIR/src/Artists.hpp) \
+        $$quote($$BASEDIR/src/Feed.hpp) \
+        $$quote($$BASEDIR/src/Http.hpp) \
+        $$quote($$BASEDIR/src/applicationui.hpp)
 }
-
-INCLUDEPATH += $$quote($$BASEDIR/src)
 
 CONFIG += precompile_header
 
@@ -92,6 +100,9 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/img/*.qml) \
         $$quote($$BASEDIR/../assets/img/*.js) \
         $$quote($$BASEDIR/../assets/img/*.qs) \
+        $$quote($$BASEDIR/../assets/js/*.qml) \
+        $$quote($$BASEDIR/../assets/js/*.js) \
+        $$quote($$BASEDIR/../assets/js/*.qs) \
         $$quote($$BASEDIR/../assets/pages/*.qml) \
         $$quote($$BASEDIR/../assets/pages/*.js) \
         $$quote($$BASEDIR/../assets/pages/*.qs) \

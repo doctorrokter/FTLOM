@@ -42,8 +42,21 @@
 <context>
     <name>Artists</name>
     <message>
-        <location filename="../assets/pages/Artists.qml" line="101"/>
+        <location filename="../assets/pages/Artists.qml" line="115"/>
         <source>TRACK</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Http</name>
+    <message>
+        <location filename="../src/Http.cpp" line="50"/>
+        <source>Error: %1 status: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/Http.cpp" line="56"/>
+        <source>Failed request</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -58,17 +71,17 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../assets/main.qml" line="24"/>
+        <location filename="../assets/main.qml" line="25"/>
         <source>Feed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="29"/>
+        <location filename="../assets/main.qml" line="30"/>
         <source>Track Artists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="34"/>
+        <location filename="../assets/main.qml" line="35"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>

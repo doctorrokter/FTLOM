@@ -21,6 +21,12 @@
 #include <bb/cascades/AbstractPane>
 #include <bb/cascades/LocaleHandler>
 
+#include <iostream>
+#include "Feed.hpp"
+#include "Artists.hpp"
+#include "Http.hpp"
+
+using namespace std;
 using namespace bb::cascades;
 
 ApplicationUI::ApplicationUI() :
@@ -29,6 +35,8 @@ ApplicationUI::ApplicationUI() :
     // prepare the localization
     m_pTranslator = new QTranslator(this);
     m_pLocaleHandler = new LocaleHandler(this);
+    m_feed = new Feed(this);
+    m_artists = new Artists(this);
 
     bool res = QObject::connect(m_pLocaleHandler, SIGNAL(systemLanguageChanged()), this, SLOT(onSystemLanguageChanged()));
     // This is only available in Debug builds
@@ -44,6 +52,10 @@ ApplicationUI::ApplicationUI() :
     // to ensure the document gets destroyed properly at shut down.
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
 
+    QDeclarativeEngine* engine = QmlDocument::defaultDeclarativeEngine();
+    QDeclarativeContext* rootContext = engine->rootContext();
+    rootContext->setContextProperty("_app", this);
+
     // Create root object for the UI
     AbstractPane *root = qml->createRootObject<AbstractPane>();
 
@@ -51,8 +63,7 @@ ApplicationUI::ApplicationUI() :
     Application::instance()->setScene(root);
 }
 
-void ApplicationUI::onSystemLanguageChanged()
-{
+void ApplicationUI::onSystemLanguageChanged() {
     QCoreApplication::instance()->removeTranslator(m_pTranslator);
     // Initiate, load and install the application translation files.
     QString locale_string = QLocale().name();
@@ -60,4 +71,12 @@ void ApplicationUI::onSystemLanguageChanged()
     if (m_pTranslator->load(file_name, "app/native/qm")) {
         QCoreApplication::instance()->installTranslator(m_pTranslator);
     }
+}
+
+Feed* ApplicationUI::feed() {
+    return m_feed;
+}
+
+Artists* ApplicationUI::artists() {
+    return m_artists;
 }

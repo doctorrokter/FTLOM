@@ -13,6 +13,6 @@ Container {
         minHeight: ui.du(10.0)
         maxWidth: ui.du(10.0)
         maxHeight: ui.du(10.0)
-        html: '<img src="' +  imageSource + '" style="border-radius: 50%;" width="100%"/>'
+        html: '<div style="overflow: hidden;"><img src="' +  imageSource + '" style="border-radius: 50%; object-fit: cover;" width="100%"/></div>'
     }
 }

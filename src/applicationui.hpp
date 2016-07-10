@@ -18,6 +18,8 @@
 #define ApplicationUI_HPP_
 
 #include <QObject>
+#include "Feed.hpp"
+#include "Artists.hpp"
 
 namespace bb
 {
@@ -37,6 +39,9 @@ class QTranslator;
 class ApplicationUI : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(Feed* feed READ feed CONSTANT)
+    Q_PROPERTY(Artists* artists READ artists CONSTANT)
+
 public:
     ApplicationUI();
     virtual ~ApplicationUI() {}
@@ -44,6 +49,11 @@ private slots:
     void onSystemLanguageChanged();
 private:
     QTranslator* m_pTranslator;
+    Feed* m_feed;
+    Artists* m_artists;
+
+    Feed* feed();
+    Artists* artists();
     bb::cascades::LocaleHandler* m_pLocaleHandler;
 };
 
