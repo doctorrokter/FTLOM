@@ -5,10 +5,10 @@ Sheet {
     id: sheet
     
     property string link
-    property string titleText
+    property string titleText: 'Title Bar'
     
     function defaultHTML() {
-        return '<html><head><title>Loading...</title></head><body>Loading...</body></html>';
+        return '<html><head></head><body>Loading...</body></html>';
     }
     
     Page {
@@ -47,7 +47,7 @@ Sheet {
         }
         
         actionBarAutoHideBehavior: ActionBarAutoHideBehavior.HideOnScroll
-        actionBarVisibility: ChromeVisibility.Compact
+        actionBarVisibility: ChromeVisibility.Overlay
         
         actions: [
             ActionItem {

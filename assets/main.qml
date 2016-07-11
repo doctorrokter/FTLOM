@@ -19,7 +19,7 @@ import './pages'
 import 'js/Feed.js' as Feed;
 
 TabbedPane {
-    showTabsOnActionBar: true
+    showTabsOnActionBar: false
         
     Tab {
         title: qsTr('Feed') + Retranslate.onLocaleOrLanguageChanged

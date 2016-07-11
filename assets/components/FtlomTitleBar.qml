@@ -7,6 +7,7 @@ TitleBar {
     
     appearance: TitleBarAppearance.Plain
     kind: TitleBarKind.FreeForm
+
     
     kindProperties: FreeFormTitleBarKindProperties {
         content:
