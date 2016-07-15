@@ -34,7 +34,7 @@ void Http::get(const QString& urlStr) {
 
 void Http::post(const QString& urlStr, const QByteArray& data) {
     cout << "[POST] Request to: " << urlStr.toStdString() << endl;
-//    cout << data->data() << endl;
+    cout << "[DATA] " << data.data() << endl;
 
     QNetworkRequest request(urlStr);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");

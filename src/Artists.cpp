@@ -27,7 +27,7 @@ void Artists::follow(int artistId) {
 
     const QString& urlStr = QString::fromLatin1("http://146.185.153.4:8082/fan/1/artists");
     QByteArray data;
-    data.append("artist_id=" + artistId);
+    data.append("artist_id=").append(QByteArray::number(artistId));
 
     bool ok = connect(pHttp, SIGNAL(complete(const QString&, bool)), this, SLOT(subscribe(const QString&, bool)));
     Q_ASSERT(ok);
