@@ -18,15 +18,29 @@ using namespace bb::cascades;
 using namespace std;
 
 Http::Http(QObject* parent) : QObject(parent) {
-    m_manager = QmlDocument::defaultDeclarativeEngine()->networkAccessManager();
+    m_pManager = QmlDocument::defaultDeclarativeEngine()->networkAccessManager();
 }
 
 void Http::get(const QString& urlStr) {
-    cout << "Request to: " << urlStr.toStdString() << endl;
+    cout << "[GET] Request to: " << urlStr.toStdString() << endl;
 
     QNetworkRequest request(urlStr);
-    QNetworkReply* reply = m_manager->get(request);
-    bool ok = connect(reply, SIGNAL(finished()), this, SLOT(onLoad()));
+    QNetworkReply* pReply = m_pManager->get(request);
+    bool ok = connect(pReply, SIGNAL(finished()), this, SLOT(onLoad()));
+
+    Q_ASSERT(ok);
+    Q_UNUSED(ok);
+}
+
+void Http::post(const QString& urlStr, const QByteArray& data) {
+    cout << "[POST] Request to: " << urlStr.toStdString() << endl;
+//    cout << data->data() << endl;
+
+    QNetworkRequest request(urlStr);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+
+    QNetworkReply* pReply = m_pManager->post(request, data);
+    bool ok = connect(pReply, SIGNAL(finished()), this, SLOT(onLoad()));
 
     Q_ASSERT(ok);
     Q_UNUSED(ok);

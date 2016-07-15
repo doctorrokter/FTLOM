@@ -42,12 +42,12 @@
 <context>
     <name>Artists</name>
     <message>
-        <location filename="../assets/pages/Artists.qml" line="40"/>
+        <location filename="../assets/pages/Artists.qml" line="44"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/Artists.qml" line="116"/>
+        <location filename="../assets/pages/Artists.qml" line="120"/>
         <source>TRACK</source>
         <translation type="unfinished"></translation>
     </message>
@@ -55,12 +55,12 @@
 <context>
     <name>Http</name>
     <message>
-        <location filename="../src/Http.cpp" line="50"/>
+        <location filename="../src/Http.cpp" line="64"/>
         <source>Error: %1 status: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Http.cpp" line="56"/>
+        <location filename="../src/Http.cpp" line="70"/>
         <source>Failed request</source>
         <translation type="unfinished"></translation>
     </message>

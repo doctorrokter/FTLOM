@@ -7,9 +7,6 @@
 
 #include "Feed.hpp"
 #include "Http.hpp"
-#include <iostream>
-
-using namespace std;
 
 Feed::Feed(QObject* parent) : QObject(parent) {}
 

@@ -18,6 +18,7 @@ public:
     Http(QObject* parent = 0);
 
     void get(const QString& urlStr);
+    void post(const QString& urlStr, const QByteArray& data);
 Q_SIGNALS:
     void complete(const QString& response, bool success);
 
@@ -25,7 +26,7 @@ private Q_SLOTS:
     void onLoad();
 
 private:
-    QNetworkAccessManager* m_manager;
+    QNetworkAccessManager* m_pManager;
 };
 
 #endif /* HTTP_HPP_ */

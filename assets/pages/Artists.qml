@@ -23,6 +23,10 @@ Page {
         loading.stop();
     }
     
+    function subscribed(response, success) {
+        console.debug(response);
+    }
+    
     function loadArtists() {
         if (!loading.running) {
             loading.start();
@@ -116,7 +120,9 @@ Page {
                                     text: qsTr('TRACK')
                                     color: Application.themeSupport.theme.colorTheme.primaryBase
                                     imageSource: "asset:///img/icon.png"
-                                    
+                                    onClicked: {
+                                        _app.artists.follow(ListItemData.id);
+                                    }
                                 }
                             }
                         }
@@ -135,7 +141,8 @@ Page {
             ]
             
             onCreationCompleted: {
-                _app.artists.complete.connect(root.artistsLoaded);
+                _app.artists.fetch.connect(root.artistsLoaded);
+                _app.artists.subscribed.connect(root.subscribed);
                 loadArtists();
 //                artists.forEach(function(a) {
 //                        artistsArray.append(a);
