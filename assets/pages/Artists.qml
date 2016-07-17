@@ -97,10 +97,11 @@ Page {
                                     Container {
                                         verticalAlignment: VerticalAlignment.Center
                                         horizontalAlignment: HorizontalAlignment.Center
+                                        maxWidth: ui.du(35)
                                         Label {
                                             text: ListItemData.name
                                             multiline: true
-                                            autoSize.maxLineCount: 2
+                                            autoSize.maxLineCount: 10
                                             textStyle {
                                                 base: bodyItemText.style
                                             }
@@ -112,8 +113,8 @@ Page {
                             Container {
                                 horizontalAlignment: HorizontalAlignment.Right
                                 verticalAlignment: VerticalAlignment.Center
-                                maxWidth: ui.du(25.0)
-                                minWidth: ui.du(25.0)
+                                maxWidth: ui.du(21.0)
+                                minWidth: ui.du(21.0)
                                 margin.rightOffset: ui.du(3.0)
                                 
                                 Button {

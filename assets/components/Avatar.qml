@@ -17,7 +17,7 @@ Container {
         scaleX: 0
         scaleY: 0
         html: 
-        '<html><body><div style="overflow: hidden; border-radius: 50%; ">' + 
+        '<html><body><div style="width: 125px; height: 125px; overflow: hidden; border-radius: 50%; ">' + 
             '<img src="' +  imageSource + '" style="width: 125px; height: 125px; object-fit: cover;"/>' + 
             '</div></body></html>'
             

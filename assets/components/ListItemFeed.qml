@@ -3,7 +3,7 @@ import '../style'
 
 CustomListItem {
     
-    property variant feed: {title: 'Title', time: 100000, artist: {name: 'Artist name', avatar: 'Avatar'}}
+    property variant feed: {title: 'Title', time: 100000, artist: {name: 'Blessed By A Broken Heart', avatar: 'Avatar'}}
     
     attachedObjects: [
         SubtitleTextStyle { id: subtitleItemText },
@@ -34,13 +34,16 @@ CustomListItem {
             
             Container {
                 id: infoContainer
-                layout: DockLayout {}
+                layout: StackLayout {}
                 margin.leftOffset: ui.du(3.0)
+                
                 Label {
                     text: feed.artist.name
+                    multiline: true
+                    autoSize.maxLineCount: 10
+                    maxWidth: ui.du(50)
                     textStyle {
                         base: bodyItemText.style
-//                        color: Application.themeSupport.theme.colorTheme.primaryBase
                     }
                     verticalAlignment: VerticalAlignment.Top
                 }
@@ -49,7 +52,6 @@ CustomListItem {
                     multiline: true
                     textStyle.base: subtitleItemText.style
                     verticalAlignment: VerticalAlignment.Bottom
-                    margin.topOffset: ui.du(5.0)
                     autoSize.maxLineCount: 10
                 }
             }

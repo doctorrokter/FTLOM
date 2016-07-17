@@ -47,7 +47,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/Artists.qml" line="120"/>
+        <location filename="../assets/pages/Artists.qml" line="121"/>
         <source>TRACK</source>
         <translation type="unfinished"></translation>
     </message>
