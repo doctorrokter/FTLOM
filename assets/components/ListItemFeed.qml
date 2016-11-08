@@ -3,7 +3,7 @@ import '../style'
 
 CustomListItem {
     
-    property variant feed: {title: 'Title', time: 100000, artist: {name: 'Blessed By A Broken Heart', avatar: 'Avatar'}}
+property variant feed: {title: 'Title', time: 100000, artist: {name: 'Blessed By A Broken Heart', "images":[{"artist_id":1,"height":1000,"id":1,"url":"http://img2-ak.lst.fm/i/u/cb92cc64a3394bc695106678cbe8a8a6.png","width":1000}]}}
     
     attachedObjects: [
         SubtitleTextStyle { id: subtitleItemText },
@@ -29,7 +29,7 @@ CustomListItem {
             verticalAlignment: VerticalAlignment.Center
             
             Avatar {
-                imageSource: feed.artist.avatar
+                imageSource: feed.artist.images[0].url
             }
             
             Container {

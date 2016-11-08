@@ -40,6 +40,9 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/FtlomTitleBar.qml) \
         $$quote($$BASEDIR/assets/components/ListItemFeed.qml) \
         $$quote($$BASEDIR/assets/components/ListItemHeader.qml) \
+        $$quote($$BASEDIR/assets/components/SearchTitleBar.qml) \
+        $$quote($$BASEDIR/assets/components/SubHeader.qml) \
+        $$quote($$BASEDIR/assets/components/TitleBarExt.qml) \
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl.otf) \
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl_0.otf) \
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl_1.otf) \
@@ -49,13 +52,13 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/img/ic_search.png) \
         $$quote($$BASEDIR/assets/img/icon.png) \
         $$quote($$BASEDIR/assets/img/image.gif) \
-        $$quote($$BASEDIR/assets/js/Feed.js) \
         $$quote($$BASEDIR/assets/js/Http.js) \
-        $$quote($$BASEDIR/assets/js/Loading.js) \
         $$quote($$BASEDIR/assets/main.qml) \
         $$quote($$BASEDIR/assets/pages/Account.qml) \
         $$quote($$BASEDIR/assets/pages/Artists.qml) \
         $$quote($$BASEDIR/assets/pages/Feed.qml) \
+        $$quote($$BASEDIR/assets/pages/YourArtists.qml) \
+        $$quote($$BASEDIR/assets/sheets/FBAuth.qml) \
         $$quote($$BASEDIR/assets/sheets/WebSheet.qml) \
         $$quote($$BASEDIR/assets/style/BodyTextStyle.qml) \
         $$quote($$BASEDIR/assets/style/FtlomFontFaceRule.qml) \
@@ -66,17 +69,25 @@ config_pri_assets {
 
 config_pri_source_group1 {
     SOURCES += \
+        $$quote($$BASEDIR/src/AppBootstrap.cpp) \
         $$quote($$BASEDIR/src/Artists.cpp) \
         $$quote($$BASEDIR/src/Feed.cpp) \
+        $$quote($$BASEDIR/src/FtlomData.cpp) \
         $$quote($$BASEDIR/src/Http.cpp) \
+        $$quote($$BASEDIR/src/Request.cpp) \
         $$quote($$BASEDIR/src/applicationui.cpp) \
-        $$quote($$BASEDIR/src/main.cpp)
+        $$quote($$BASEDIR/src/main.cpp) \
+        $$quote($$BASEDIR/src/models/User.cpp)
 
     HEADERS += \
+        $$quote($$BASEDIR/src/AppBootstrap.hpp) \
         $$quote($$BASEDIR/src/Artists.hpp) \
         $$quote($$BASEDIR/src/Feed.hpp) \
+        $$quote($$BASEDIR/src/FtlomData.hpp) \
         $$quote($$BASEDIR/src/Http.hpp) \
-        $$quote($$BASEDIR/src/applicationui.hpp)
+        $$quote($$BASEDIR/src/Request.hpp) \
+        $$quote($$BASEDIR/src/applicationui.hpp) \
+        $$quote($$BASEDIR/src/models/User.hpp)
 }
 
 CONFIG += precompile_header
@@ -90,6 +101,11 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../src/*.cc) \
         $$quote($$BASEDIR/../src/*.cpp) \
         $$quote($$BASEDIR/../src/*.cxx) \
+        $$quote($$BASEDIR/../src/models/*.c) \
+        $$quote($$BASEDIR/../src/models/*.c++) \
+        $$quote($$BASEDIR/../src/models/*.cc) \
+        $$quote($$BASEDIR/../src/models/*.cpp) \
+        $$quote($$BASEDIR/../src/models/*.cxx) \
         $$quote($$BASEDIR/../assets/*.qml) \
         $$quote($$BASEDIR/../assets/*.js) \
         $$quote($$BASEDIR/../assets/*.qs) \

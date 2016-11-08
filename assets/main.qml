@@ -15,24 +15,51 @@
  */
 
 import bb.cascades 1.4
-import './pages'
-import 'js/Feed.js' as Feed;
+import "pages"
+import "sheets"
 
 TabbedPane {
-    showTabsOnActionBar: false
+    showTabsOnActionBar: true
         
     Tab {
         title: qsTr('Feed') + Retranslate.onLocaleOrLanguageChanged
+        ActionBar.placement: ActionBarPlacement.OnBar
         Feed {}
     }
     
     Tab {
-        title: qsTr('Track Artists') + Retranslate.onLocaleOrLanguageChanged
+        title: qsTr('Add Artists') + Retranslate.onLocaleOrLanguageChanged
+        ActionBar.placement: ActionBarPlacement.OnBar
         Artists {}
     }
     
     Tab {
+        title: qsTr('Your Artists') + Retranslate.onLocaleOrLanguageChanged
+        ActionBar.placement: ActionBarPlacement.OnBar
+        YourArtists {}
+    }
+    
+    Tab {
         title: qsTr('Settings')
+        ActionBar.placement: ActionBarPlacement.OnBar
         Account {}
+    }
+    
+    attachedObjects: [
+        FBAuth {
+            id: fbAuth
+            onLoggedIn: {
+                console.debug(data);
+                _ftlomData.saveData(data);
+                fbAuth.close();
+            }
+        }
+    ]
+    
+    onCreationCompleted: {
+        if (!_ftlomData.accessToken) {
+            fbAuth.init();
+            fbAuth.open();
+        }
     }
 }

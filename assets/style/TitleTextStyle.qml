@@ -3,7 +3,7 @@ import bb.cascades 1.4
 TextStyleDefinition {
     base: SystemDefaults.TextStyles.TitleText
     fontSize: FontSize.Medium
-    fontWeight: FontWeight.W800
+    fontWeight: FontWeight.W600
     color: Color.White
     rules: [
         FontFaceRule {

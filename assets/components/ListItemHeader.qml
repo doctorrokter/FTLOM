@@ -9,7 +9,7 @@ CustomListItem {
     Container {
         horizontalAlignment: HorizontalAlignment.Fill
         verticalAlignment: VerticalAlignment.Fill
-        background: Color.create('#E8E8E8')
+        background: Color.create('#EFEFEF')
         layout: DockLayout {}
         Container {
             verticalAlignment: VerticalAlignment.Center

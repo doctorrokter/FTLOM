@@ -25,6 +25,8 @@
 #include "Feed.hpp"
 #include "Artists.hpp"
 #include "Http.hpp"
+#include "FtlomData.hpp"
+#include "AppBootstrap.hpp"
 
 using namespace std;
 using namespace bb::cascades;
@@ -35,8 +37,14 @@ ApplicationUI::ApplicationUI() :
     // prepare the localization
     m_pTranslator = new QTranslator(this);
     m_pLocaleHandler = new LocaleHandler(this);
-    m_feed = new Feed(this);
-    m_artists = new Artists(this);
+
+    FtlomData* ftlomData = new FtlomData(this);
+
+    m_feed = new Feed(this, ftlomData);
+    m_artists = new Artists(this, ftlomData);
+
+    AppBootstrap* bootstrap = new AppBootstrap(this, ftlomData, m_feed, m_artists);
+    Q_UNUSED(bootstrap);
 
     bool res = QObject::connect(m_pLocaleHandler, SIGNAL(systemLanguageChanged()), this, SLOT(onSystemLanguageChanged()));
     // This is only available in Debug builds
@@ -51,10 +59,17 @@ ApplicationUI::ApplicationUI() :
     // Create scene document from main.qml asset, the parent is set
     // to ensure the document gets destroyed properly at shut down.
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
+//    qml->setContextProperty("_app", this);
+//    qml->setContextProperty("_ftlomData", ftlomData);
+//    qml->setContextProperty("_feed", m_feed);
+//    qml->setContextProperty("_artists", m_artists);
 
     QDeclarativeEngine* engine = QmlDocument::defaultDeclarativeEngine();
     QDeclarativeContext* rootContext = engine->rootContext();
     rootContext->setContextProperty("_app", this);
+    rootContext->setContextProperty("_ftlomData", ftlomData);
+    rootContext->setContextProperty("_feed", m_feed);
+    rootContext->setContextProperty("_artists", m_artists);
 
     // Create root object for the UI
     AbstractPane *root = qml->createRootObject<AbstractPane>();

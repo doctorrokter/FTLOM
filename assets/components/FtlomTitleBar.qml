@@ -12,7 +12,8 @@ TitleBar {
     kindProperties: FreeFormTitleBarKindProperties {
         content:
         Container {
-            background: Application.themeSupport.theme.colorTheme.primaryBase
+//            background: Application.themeSupport.theme.colorTheme.primaryBase
+            background: Color.White
             layout: DockLayout {}
             Label {
                 horizontalAlignment: HorizontalAlignment.Center
@@ -20,6 +21,7 @@ TitleBar {
                 
                 text: qsTr(titleText)
                 textStyle.base: museoTitleText.style
+                textStyle.color: Color.Black
             }
             
             attachedObjects: [

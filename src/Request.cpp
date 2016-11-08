@@ -1,30 +1,29 @@
 /*
- * Http.cpp
+ * Request.cpp
  *
- *  Created on: 09 июля 2016 г.
+ *  Created on: 30 июля 2016 г.
  *      Author: misha
  */
 
-#include "Http.hpp"
-
+#include "Request.hpp"
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
-#include <QUrl>
 #include <iostream>
-#include <bb/cascades/QmlDocument>
 
-using namespace bb::cascades;
 using namespace std;
 
-Http::Http(QObject* parent) : QObject(parent) {
-    m_pManager = QmlDocument::defaultDeclarativeEngine()->networkAccessManager();
+Request::Request(QObject* parent, QNetworkAccessManager* manager) : QObject(parent), m_pManager(manager) {}
+
+Request::~Request() {
+    delete m_pManager;
+    m_pManager = 0;
 }
 
-void Http::get(const QString& urlStr) {
-    cout << "[GET] Request to: " << urlStr.toStdString() << endl;
+void Request::doGet(const QString& url) const {
+    cout << "[GET] Request to: " << url.toStdString() << endl;
 
-    QNetworkRequest request(urlStr);
+    QNetworkRequest request(url);
     QNetworkReply* pReply = m_pManager->get(request);
     bool ok = connect(pReply, SIGNAL(finished()), this, SLOT(onLoad()));
 
@@ -32,13 +31,11 @@ void Http::get(const QString& urlStr) {
     Q_UNUSED(ok);
 }
 
-void Http::post(const QString& urlStr, const QByteArray& data) {
-    cout << "[POST] Request to: " << urlStr.toStdString() << endl;
-    cout << "[DATA] " << data.data() << endl;
+void Request::doPost(const QString& url, QByteArray& data) const {
+    cout << "[POST] Request to: " << url.toStdString() << endl;
+    cout << "[DATA]: " << data.data() << endl;
 
-    QNetworkRequest request(urlStr);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
-
+    QNetworkRequest request(url);
     QNetworkReply* pReply = m_pManager->post(request, data);
     bool ok = connect(pReply, SIGNAL(finished()), this, SLOT(onLoad()));
 
@@ -46,7 +43,7 @@ void Http::post(const QString& urlStr, const QByteArray& data) {
     Q_UNUSED(ok);
 }
 
-void Http::doPut(const QString& url, QByteArray& data) const {
+void Request::doPut(const QString& url, QByteArray& data) const {
     cout << "[PUT] Request to: " << url.toStdString() << endl;
     cout << "[DATA]: " << data.data() << endl;
 
@@ -58,7 +55,7 @@ void Http::doPut(const QString& url, QByteArray& data) const {
     Q_UNUSED(ok);
 }
 
-void Http::doDelete(const QString& url) const {
+void Request::doDelete(const QString& url) const {
     cout << "[DELETE] Request to: " << url.toStdString() << endl;
 
     QNetworkRequest request(url);
@@ -69,7 +66,7 @@ void Http::doDelete(const QString& url) const {
     Q_UNUSED(ok);
 }
 
-void Http::onLoad() {
+void Request::onLoad() {
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
 
     QString response;
@@ -95,7 +92,6 @@ void Http::onLoad() {
 
     emit complete(response, success);
 }
-
 
 
 

@@ -72,6 +72,7 @@
     <splashScreens>
        <image>splash.png</image>
     </splashScreens>
+    <category>core.media</category>
     <authorId>gYAAgJBERbiwoSHtjskM8WvopKU</authorId>
     <author>Mikhail Chachkouski</author>
 

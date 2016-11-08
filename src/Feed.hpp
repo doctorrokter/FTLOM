@@ -9,19 +9,23 @@
 #define FEED_HPP_
 
 #include <QtCore/QObject>
+#include "FtlomData.hpp"
 
 class Feed : public QObject {
     Q_OBJECT
 
 public:
-    Feed(QObject* parent = 0);
+    Feed(QObject* parent = 0, FtlomData* ftlomData = 0);
+    ~Feed();
 
-    Q_INVOKABLE void get(int userId, int page);
+    Q_INVOKABLE void get();
 Q_SIGNALS:
     void complete(const QString& info, bool success);
 
 private Q_SLOTS:
     void onFeed(const QString& info, bool success);
+private:
+    FtlomData* m_ftlomData;
 };
 
 
