@@ -36,7 +36,9 @@ Page {
     }
     
     Container {
+        
         layout: DockLayout {}
+        
         ListView {
             id: feedList
             dataModel: GroupDataModel {
@@ -102,11 +104,14 @@ Page {
                 }
             }
         }
+        
         ActivityIndicator {
             id: loading
             horizontalAlignment: HorizontalAlignment.Center
             verticalAlignment: VerticalAlignment.Center
             enabled: true
+            scaleX: ui.du(0.2)
+            scaleY: ui.du(0.2)
         }
     }
 }

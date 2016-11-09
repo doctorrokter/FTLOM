@@ -68,134 +68,142 @@ Page {
     }
         
     Container {
-        layout: StackLayout {}
+        
+        layout: DockLayout {}
+        
         Container {
-            id: subHeader
-            SegmentedControl {
-                bottomMargin: ui.du(0)
-                horizontalAlignment: HorizontalAlignment.Fill
-                options: [
-                    Option {
-                        text: qsTr('TRACK')
-                        value: 'track'
-                        selected: true
-                    },
-                    
-                    Option {
-                        text: qsTr('DEMAND')
-                        value: 'demand'
-                    }
-                ]
-            }
-            ListItemHeader {
-                header: qsTr('Available')
-            }
-        }
-        ListView {
-            id: artistsList
-            dataModel: ArrayDataModel {
-                id: artistsArray
-            }
-            
-            scrollIndicatorMode: ScrollIndicatorMode.ProportionalBar
-            scrollRole: ScrollRole.Main
-            
-            listItemComponents: [
-                ListItemComponent {
-                    CustomListItem {
-                        attachedObjects: [
-                            BodyTextStyle { id: bodyItemText },
-                            SubtitleTextStyle { id: subtitleItemText }
-                        ]
+            layout: StackLayout {}
+            Container {
+                id: subHeader
+                SegmentedControl {
+                    bottomMargin: ui.du(0)
+                    horizontalAlignment: HorizontalAlignment.Fill
+                    options: [
+                        Option {
+                            text: qsTr('TRACK')
+                            value: 'track'
+                            selected: true
+                        },
                         
-                        Container {
-                            layout: DockLayout {}
-                            horizontalAlignment: HorizontalAlignment.Fill
-                            maxHeight: ui.du(50);
-                            
+                        Option {
+                            text: qsTr('DEMAND')
+                            value: 'demand'
+                        }
+                    ]
+                }
+                ListItemHeader {
+                    header: qsTr('Available')
+                }
+            }
+            ListView {
+                id: artistsList
+                dataModel: ArrayDataModel {
+                    id: artistsArray
+                }
+                
+                scrollIndicatorMode: ScrollIndicatorMode.ProportionalBar
+                scrollRole: ScrollRole.Main
+                
+                listItemComponents: [
+                    ListItemComponent {
+                        CustomListItem {
+                            attachedObjects: [
+                                BodyTextStyle { id: bodyItemText },
+                                SubtitleTextStyle { id: subtitleItemText }
+                            ]
                             
                             Container {
-                                layout: StackLayout {
-                                    orientation: LayoutOrientation.LeftToRight
-                                }
-                                margin.leftOffset: ui.du(3.0)
-                                margin.rightOffset: ui.du(3.0)
-                                margin.bottomOffset: ui.du(3.0)
-                                margin.topOffset: ui.du(3.0)
-                                horizontalAlignment: HorizontalAlignment.Left
-                                verticalAlignment: VerticalAlignment.Center
-
-                                Avatar {
-                                    imageSource: ListItemData.images[0].url
-                                }
+                                layout: DockLayout {}
+                                horizontalAlignment: HorizontalAlignment.Fill
+                                maxHeight: ui.du(50);
+                                
                                 
                                 Container {
-                                    id: infoContainer
-                                    layout: DockLayout {}
+                                    layout: StackLayout {
+                                        orientation: LayoutOrientation.LeftToRight
+                                    }
                                     margin.leftOffset: ui.du(3.0)
-                                    verticalAlignment: VerticalAlignment.Fill
-                                    horizontalAlignment: HorizontalAlignment.Fill
+                                    margin.rightOffset: ui.du(3.0)
+                                    margin.bottomOffset: ui.du(3.0)
+                                    margin.topOffset: ui.du(3.0)
+                                    horizontalAlignment: HorizontalAlignment.Left
+                                    verticalAlignment: VerticalAlignment.Center
+                                    
+                                    Avatar {
+                                        imageSource: ListItemData.images[0].url
+                                    }
                                     
                                     Container {
-                                        verticalAlignment: VerticalAlignment.Center
-                                        horizontalAlignment: HorizontalAlignment.Center
-                                        maxWidth: ui.du(35)
-                                        Label {
-                                            text: ListItemData.name
-                                            multiline: true
-                                            autoSize.maxLineCount: 10
-                                            textStyle {
-                                                base: bodyItemText.style
+                                        id: infoContainer
+                                        layout: DockLayout {}
+                                        margin.leftOffset: ui.du(3.0)
+                                        verticalAlignment: VerticalAlignment.Fill
+                                        horizontalAlignment: HorizontalAlignment.Fill
+                                        
+                                        Container {
+                                            verticalAlignment: VerticalAlignment.Center
+                                            horizontalAlignment: HorizontalAlignment.Center
+                                            maxWidth: ui.du(35)
+                                            Label {
+                                                text: ListItemData.name
+                                                multiline: true
+                                                autoSize.maxLineCount: 10
+                                                textStyle {
+                                                    base: bodyItemText.style
+                                                }
                                             }
                                         }
                                     }
                                 }
-                            }
-                            
-                            Container {
-                                horizontalAlignment: HorizontalAlignment.Right
-                                verticalAlignment: VerticalAlignment.Center
-                                maxWidth: ui.du(21.0)
-                                minWidth: ui.du(21.0)
-                                margin.rightOffset: ui.du(3.0)
                                 
-                                Button {
-                                    text: qsTr("Track")
-                                    onClicked: {
-                                        _app.artists.follow(ListItemData.id);
+                                Container {
+                                    horizontalAlignment: HorizontalAlignment.Right
+                                    verticalAlignment: VerticalAlignment.Center
+                                    maxWidth: ui.du(21.0)
+                                    minWidth: ui.du(21.0)
+                                    margin.rightOffset: ui.du(3.0)
+                                    
+                                    Button {
+                                        text: qsTr("Track")
+                                        onClicked: {
+                                            _app.artists.follow(ListItemData.id);
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
-            ]
-            
-            attachedObjects: [
-                ListScrollStateHandler {
-                    onScrollingChanged: {
-                        if (atEnd) {
-                            loadArtists();
+                ]
+                
+                attachedObjects: [
+                    ListScrollStateHandler {
+                        onScrollingChanged: {
+                            if (atEnd) {
+                                loadArtists();
+                            }
                         }
                     }
+                ]
+                
+                onCreationCompleted: {
+                    _app.artists.untrackedArtistsLoaded.connect(root.artistsLoaded);
+                    _app.artists.followed.connect(root.followed);
+                    _app.artists.unfollowed.connect(root.unfollowed);
+                    //                loadArtists();
+                    //                artists.forEach(function(a) {
+                    //                    artistsArray.append(a);
+                    //                });
                 }
-            ]
-            
-            onCreationCompleted: {
-                _app.artists.untrackedArtistsLoaded.connect(root.artistsLoaded);
-                _app.artists.followed.connect(root.followed);
-                _app.artists.unfollowed.connect(root.unfollowed);
-//                loadArtists();
-//                artists.forEach(function(a) {
-//                    artistsArray.append(a);
-//                });
             }
-        }    
+        }
+        
         ActivityIndicator {
             id: loading
             horizontalAlignment: HorizontalAlignment.Center
             verticalAlignment: VerticalAlignment.Center
             enabled: true
+            scaleX: ui.du(0.2)
+            scaleY: ui.du(0.2)
         }
     }
 }

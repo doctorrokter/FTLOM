@@ -40,8 +40,8 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/components/FtlomTitleBar.qml) \
         $$quote($$BASEDIR/assets/components/ListItemFeed.qml) \
         $$quote($$BASEDIR/assets/components/ListItemHeader.qml) \
+        $$quote($$BASEDIR/assets/components/MenuOption.qml) \
         $$quote($$BASEDIR/assets/components/SearchTitleBar.qml) \
-        $$quote($$BASEDIR/assets/components/SubHeader.qml) \
         $$quote($$BASEDIR/assets/components/TitleBarExt.qml) \
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl.otf) \
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl_0.otf) \
@@ -54,11 +54,12 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/img/image.gif) \
         $$quote($$BASEDIR/assets/js/Http.js) \
         $$quote($$BASEDIR/assets/main.qml) \
-        $$quote($$BASEDIR/assets/pages/Account.qml) \
         $$quote($$BASEDIR/assets/pages/Artists.qml) \
         $$quote($$BASEDIR/assets/pages/Feed.qml) \
         $$quote($$BASEDIR/assets/pages/YourArtists.qml) \
         $$quote($$BASEDIR/assets/sheets/FBAuth.qml) \
+        $$quote($$BASEDIR/assets/sheets/NotificationSettings.qml) \
+        $$quote($$BASEDIR/assets/sheets/Settings.qml) \
         $$quote($$BASEDIR/assets/sheets/WebSheet.qml) \
         $$quote($$BASEDIR/assets/style/BodyTextStyle.qml) \
         $$quote($$BASEDIR/assets/style/FtlomFontFaceRule.qml) \

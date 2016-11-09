@@ -20,6 +20,14 @@ import "sheets"
 
 TabbedPane {
     showTabsOnActionBar: true
+    
+    Menu.definition: MenuDefinition {
+        settingsAction: SettingsActionItem {
+            onTriggered: {
+                settingsSheet.open();
+            }
+        }
+    }
         
     Tab {
         title: qsTr('Feed') + Retranslate.onLocaleOrLanguageChanged
@@ -38,21 +46,18 @@ TabbedPane {
         ActionBar.placement: ActionBarPlacement.OnBar
         YourArtists {}
     }
-    
-    Tab {
-        title: qsTr('Settings')
-        ActionBar.placement: ActionBarPlacement.OnBar
-        Account {}
-    }
-    
+        
     attachedObjects: [
         FBAuth {
             id: fbAuth
             onLoggedIn: {
-                console.debug(data);
                 _ftlomData.saveData(data);
                 fbAuth.close();
             }
+        },
+        
+        Settings {
+            id: settingsSheet
         }
     ]
     
