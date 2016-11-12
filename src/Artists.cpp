@@ -15,7 +15,7 @@ Artists::~Artists() {}
 void Artists::get(const int page) {
     Http* pReq = new Http(this);
 
-    const QString& urlStr = QString::fromLatin1("http://146.185.153.4:8082/fan/artists/tracked?page=%1&access_token=%2")
+    const QString& urlStr = m_ftlomData->getApiUrl() + QString::fromLatin1("/fan/artists/tracked?page=%1&access_token=%2")
         .arg(page)
         .arg(m_ftlomData->getAccessToken());
 
@@ -29,7 +29,7 @@ void Artists::get(const int page) {
 void Artists::getUntracked(const int page) {
     Http* pReq = new Http(this);
 
-    const QString& urlStr = QString::fromLatin1("http://146.185.153.4:8082/fan/artists/untracked?page=%1&access_token=%2").arg(page).arg(m_ftlomData->getAccessToken());
+    const QString& urlStr = m_ftlomData->getApiUrl() + QString::fromLatin1("/fan/artists/untracked?page=%1&access_token=%2").arg(page).arg(m_ftlomData->getAccessToken());
 
     bool ok = connect(pReq, SIGNAL(complete(const QString&, bool)), this, SLOT(processUntrackedArtists(const QString&, bool)));
     Q_ASSERT(ok);
@@ -41,7 +41,7 @@ void Artists::getUntracked(const int page) {
 void Artists::follow(const int artistId) {
     Http* pReq = new Http(this);
 
-    const QString& urlStr = QString::fromLatin1("http://146.185.153.4:8082/fan/artists/%1?access_token=%2").arg(artistId).arg(m_ftlomData->getAccessToken());
+    const QString& urlStr = m_ftlomData->getApiUrl() + QString::fromLatin1("/fan/artists/%1?access_token=%2").arg(artistId).arg(m_ftlomData->getAccessToken());
     QByteArray data;
 //    data.append("artist_id=").append(QByteArray::number(artistId));
 
@@ -55,7 +55,7 @@ void Artists::follow(const int artistId) {
 void Artists::unfollow(const int artistId) {
     Http* pReq = new Http(this);
 
-    const QString& urlStr = QString::fromLatin1("http://146.185.153.4:8082/fan/artists/%1?access_token=%2").arg(artistId).arg(m_ftlomData->getAccessToken());
+    const QString& urlStr = m_ftlomData->getApiUrl() + QString::fromLatin1("/fan/artists/%1?access_token=%2").arg(artistId).arg(m_ftlomData->getAccessToken());
 
     bool ok = connect(pReq, SIGNAL(complete(const QString&, bool)), this, SLOT(processUnfollow(const QString&, bool)));
     Q_ASSERT(ok);

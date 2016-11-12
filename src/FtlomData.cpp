@@ -18,6 +18,7 @@ using namespace bb::data;
 using namespace std;
 
 FtlomData::FtlomData(QObject* parent) : QObject(parent), m_accessToken(""), m_user(0) {
+    m_apiUrl = QString::fromStdString("http://146.185.153.4:8082");
     JsonDataAccess json;
         QVariant ftlomData = json.load(QDir::currentPath() + "/data/ftlom_data.json");
 
@@ -48,6 +49,8 @@ User& FtlomData::getUser() { return m_user; }
 void FtlomData::setUser(const User& user) {
     m_user = user;
 }
+
+const QString& FtlomData::getApiUrl() const { return m_apiUrl; }
 
 void FtlomData::saveData(const QString& data) {
     JsonDataAccess jsonData;

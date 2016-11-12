@@ -76,6 +76,7 @@ Page {
             Container {
                 id: subHeader
                 SegmentedControl {
+                    id: segmentedControl
                     bottomMargin: ui.du(0)
                     horizontalAlignment: HorizontalAlignment.Fill
                     options: [
@@ -95,8 +96,19 @@ Page {
                     header: qsTr('Available')
                 }
             }
+            
+            Container {
+                id: demandingList
+                visible: segmentedControl.selectedValue === "demand"
+                Label {
+                    text: "Demanding List"
+                }
+            }
+            
             ListView {
-                id: artistsList
+                id: trackingList
+                visible: segmentedControl.selectedValue === "track"
+                
                 dataModel: ArrayDataModel {
                     id: artistsArray
                 }

@@ -1,8 +1,9 @@
 import bb.cascades 1.4
 
 Container {
+    id: root
     
-    property string imageSource: 'http://img2-ak.lst.fm/i/u/300x300/2b7b44620dc040bda6b5305dd9bab5ed.png'
+    property string imageSource: ''
     
     minWidth: ui.du(12.0)
     minHeight: ui.du(12.0)
@@ -16,12 +17,13 @@ Container {
         maxHeight: ui.du(12.0)
         scaleX: 0
         scaleY: 0
-        html: 
-        '<html><body><div style="width: 125px; height: 125px; overflow: hidden; border-radius: 50%; ">' + 
-            '<img src="' +  imageSource + '" style="width: 125px; height: 125px; object-fit: cover;"/>' + 
-            '</div></body></html>'
-            
+        url: "local:///assets/html/avatar.html"            
         onLoadingChanged: {
+            webView.evaluateJavaScript(
+                'var img = document.getElementById("image");' +
+                'img.src = "' + root.imageSource + '";'
+            );
+            
             if (loadRequest.status === WebLoadStatus.Succeeded) {
                 scaleWebView.play();
             }

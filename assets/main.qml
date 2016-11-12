@@ -27,6 +27,12 @@ TabbedPane {
                 settingsSheet.open();
             }
         }
+        
+        helpAction: HelpActionItem {
+            onTriggered: {
+                helpCenter.open();
+            }
+        }
     }
         
     Tab {
@@ -56,9 +62,8 @@ TabbedPane {
             }
         },
         
-        Settings {
-            id: settingsSheet
-        }
+        Settings { id: settingsSheet },
+        HelpCenter { id: helpCenter }
     ]
     
     onCreationCompleted: {

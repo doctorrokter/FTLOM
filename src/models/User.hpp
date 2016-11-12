@@ -16,6 +16,7 @@ class User : QObject {
     Q_PROPERTY(QString email READ getEmail WRITE setEmail)
     Q_PROPERTY(QString firstName READ getFirstName WRITE setFirstName)
     Q_PROPERTY(QString lastName READ getLastName WRITE setLastName)
+    Q_PROPERTY(QString picture READ getPicture WRITE setPicture)
     Q_PROPERTY(QString accessToken READ getAccessToken WRITE setAccessToken)
 
 public:
@@ -35,6 +36,9 @@ public:
     Q_INVOKABLE const QString& getLastName() const;
     Q_INVOKABLE void setLastName(const QString& lastName);
 
+    Q_INVOKABLE const QString& getPicture() const;
+    Q_INVOKABLE void setPicture(const QString& picture);
+
     Q_INVOKABLE const QString& getAccessToken() const;
     Q_INVOKABLE void setAccessToken(const QString& accessToken);
 
@@ -47,6 +51,7 @@ private:
     QString m_email;
     QString m_firstName;
     QString m_lastName;
+    QString m_picture;
     QString m_accessToken;
 };
 

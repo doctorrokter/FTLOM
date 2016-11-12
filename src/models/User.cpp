@@ -10,9 +10,9 @@
 
 using namespace std;
 
-User::User(QObject* parent) : QObject(parent), m_email(""), m_firstName(""), m_lastName(""), m_accessToken("") {}
+User::User(QObject* parent) : QObject(parent), m_email(""), m_firstName(""), m_lastName(""), m_picture(""), m_accessToken("") {}
 
-User::User(const User& user) : QObject(user.parent()), m_email(""), m_firstName(""), m_lastName(""), m_accessToken("") {
+User::User(const User& user) : QObject(user.parent()), m_email(""), m_firstName(""), m_lastName(""), m_picture(""), m_accessToken("") {
     if (this != &user) {
         QString email = user.getEmail();
         this->setEmail(email);
@@ -22,6 +22,9 @@ User::User(const User& user) : QObject(user.parent()), m_email(""), m_firstName(
 
         QString lastName = user.getLastName();
         this->setLastName(lastName);
+
+        QString picture = user.getPicture();
+        this->setPicture(picture);
 
         QString accessToken = user.getAccessToken();
         this->setAccessToken(accessToken);
@@ -39,6 +42,9 @@ User& User::operator=(const User& user) {
 
     QString lastName = user.getLastName();
     this->setLastName(lastName);
+
+    QString picture = user.getPicture();
+    this->setPicture(picture);
 
     QString accessToken = user.getAccessToken();
     this->setAccessToken(accessToken);
@@ -58,6 +64,9 @@ void User::setFirstName(const QString& firstName) { m_firstName = firstName; }
 const QString& User::getLastName() const { return m_lastName; }
 void User::setLastName(const QString& lastName) { m_lastName = lastName; }
 
+const QString& User::getPicture() const { return m_picture; }
+void User::setPicture(const QString& picture) { m_picture = picture; }
+
 const QString& User::getAccessToken() const { return m_accessToken; }
 void User::setAccessToken(const QString& accessToken) { m_accessToken = accessToken; }
 
@@ -65,6 +74,7 @@ void User::fromMap(const QVariantMap& userMap) {
     this->setEmail(userMap.value("email").toString());
     this->setFirstName(userMap.value("first_name").toString());
     this->setLastName(userMap.value("last_name").toString());
+    this->setPicture(userMap.value("picture").toString());
     this->setAccessToken(userMap.value("access_token").toString());
 }
 
@@ -73,6 +83,7 @@ QVariantMap User::toMap() const {
     userMap["email"] = this->getEmail();
     userMap["first_name"] = this->getFirstName();
     userMap["last_name"] = this->getLastName();
+    userMap["picture"] = this->getLastName();
     userMap["access_token"] = this->getAccessToken();
     return userMap;
 }
@@ -81,6 +92,7 @@ QString User::toString() {
     return QString::fromStdString("{email = ") + m_email +
             QString::fromStdString(", first_name = ") + m_firstName +
             QString::fromStdString(", last_name = ") + m_lastName +
+            QString::fromStdString(", picture = ") + m_picture +
             QString::fromStdString(", access_token = ") + m_accessToken +
             QString::fromStdString("}");
 }

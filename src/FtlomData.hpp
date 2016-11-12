@@ -15,6 +15,7 @@ class FtlomData : public QObject {
     Q_OBJECT
     Q_PROPERTY(QString accessToken READ getAccessToken WRITE setAccessToken)
     Q_PROPERTY(User user READ getUser WRITE setUser)
+    Q_PROPERTY(QString apiUrl READ getApiUrl)
 
 public:
     FtlomData(QObject* parent = 0);
@@ -26,6 +27,8 @@ public:
     Q_INVOKABLE User& getUser();
     Q_INVOKABLE void setUser(const User& user);
 
+    Q_INVOKABLE const QString& getApiUrl() const;
+
     Q_INVOKABLE void saveData(const QString& data);
 
 Q_SIGNALS:
@@ -35,6 +38,7 @@ Q_SIGNALS:
 private:
     QString m_accessToken;
     User m_user;
+    QString m_apiUrl;
 };
 
 #endif /* FTLOMDATA_HPP_ */

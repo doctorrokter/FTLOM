@@ -48,6 +48,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl_1.otf) \
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl_2.otf) \
         $$quote($$BASEDIR/assets/fonts/MuseoSansCyrl_3.otf) \
+        $$quote($$BASEDIR/assets/html/avatar.html) \
         $$quote($$BASEDIR/assets/img/ic_previous.png) \
         $$quote($$BASEDIR/assets/img/ic_search.png) \
         $$quote($$BASEDIR/assets/img/icon.png) \
@@ -58,6 +59,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/pages/Feed.qml) \
         $$quote($$BASEDIR/assets/pages/YourArtists.qml) \
         $$quote($$BASEDIR/assets/sheets/FBAuth.qml) \
+        $$quote($$BASEDIR/assets/sheets/HelpCenter.qml) \
         $$quote($$BASEDIR/assets/sheets/NotificationSettings.qml) \
         $$quote($$BASEDIR/assets/sheets/Settings.qml) \
         $$quote($$BASEDIR/assets/sheets/WebSheet.qml) \
@@ -116,6 +118,9 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/fonts/*.qml) \
         $$quote($$BASEDIR/../assets/fonts/*.js) \
         $$quote($$BASEDIR/../assets/fonts/*.qs) \
+        $$quote($$BASEDIR/../assets/html/*.qml) \
+        $$quote($$BASEDIR/../assets/html/*.js) \
+        $$quote($$BASEDIR/../assets/html/*.qs) \
         $$quote($$BASEDIR/../assets/img/*.qml) \
         $$quote($$BASEDIR/../assets/img/*.js) \
         $$quote($$BASEDIR/../assets/img/*.qs) \

@@ -16,10 +16,8 @@ Sheet {
         
         ScrollView {
             Container {
-                attachedObjects: [
-                    TitleTextStyle { id: titleTextStyle }
-                ]    
                 horizontalAlignment: HorizontalAlignment.Fill
+                verticalAlignment: VerticalAlignment.Fill
                 background: Color.create('#EFEFF4')
                 Container {
                     horizontalAlignment: HorizontalAlignment.Center
@@ -39,13 +37,6 @@ Sheet {
                         html: '<body style="background-color: #EFEFF4;"><img src="https://3.basecamp-static.com/3302743/people/2971716/avatars/avatar-e334a8eaf47d8fcfd09327c68e1d14a5-128-x1" 
                         width="100%" style="border-radius: 50%;"/></div></body>'
                     }
-                    //                ImageView {
-                    //                    minWidth: ui.du(20.0)
-                    //                    minHeight: ui.du(20.0)
-                    //                    maxWidth: ui.du(20.0)
-                    //                    maxHeight: ui.du(20.0)
-                    //                    imageSource: 'asset:///img/image.gif'
-                    //                }
                 }
                 Container {
                     margin.bottomOffset: ui.du(7.5)
@@ -59,10 +50,6 @@ Sheet {
                     }
                 }
                 MenuOption {
-                    text: qsTr("Your Artists")
-                }
-                MenuOption {
-                    margin.topOffset: ui.du(0.5)
                     text: qsTr("Edit Notification Settings")
                     onTapped: {
                         notificationSettings.open();
@@ -81,9 +68,6 @@ Sheet {
                     margin.topOffset: ui.du(5.0)
                 }
                 MenuOption {
-                    text: qsTr("Help Center")
-                }
-                MenuOption {
                     text: qsTr("Privacy")
                     margin.topOffset: ui.du(0.5)
                 }
@@ -92,6 +76,10 @@ Sheet {
                     minHeight: ui.du(5.0)
                 }
             }
+            
+            attachedObjects: [
+                TitleTextStyle { id: titleTextStyle }
+            ]
         }
         
         actions: [

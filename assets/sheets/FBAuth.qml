@@ -8,7 +8,7 @@ Sheet {
     property string scope: "birthday,email,location,first_name,last_name,picture"
     property string display: "popup"
     property string redirectUri: "https://www.facebook.com/connect/login_success.html"
-    property string ftlomUri: "http://146.185.153.4:8082/users/login?device_type=3&device_model=BlackBerry%20Passport&device_os=10.3&push_id=2BF98F81&access_token="
+    property string ftlomUri: "/users/login?device_type=3&device_model=BlackBerry%20Passport&device_os=10.3&push_id=2BF98F81&access_token="
     
     signal loggedIn(string data)
     
@@ -38,12 +38,12 @@ Sheet {
                                     } else {
                                         console.debug("Status: " + request.status + ", status text: " + request.statusText);
                                         console.debug("Send once again!");
-                                        request.open("GET", authPage.ftlomUri + accessToken, true);
+                                        request.open("GET", _ftlomData.apiUrl + authPage.ftlomUri + accessToken, true);
                                         request.send();
                                     }
                                 }
                             }
-                            request.open("GET", authPage.ftlomUri + accessToken, true);
+                            request.open("GET", _ftlomData.apiUrl + authPage.ftlomUri + accessToken, true);
                             request.send();
                         }
                     }

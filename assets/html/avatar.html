@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+            <html lang="en"> 
+                <head> 
+                    <title>Artist Image</title>
+                    <meta charset="utf-8"/>
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                    <meta name="mobile-web-app-capable" content="yes"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+                    <style type="text/css">
+                        img {
+                            object-fit: cover;
+                            width: 100%;
+                            height: 55px;
+                            border-radius: 50%;
+                        }
+                        .thumbnail {
+                            width: 55px;
+                            height: 55px;
+                            overflow: hidden;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="thumbnail">
+                        <img id="image" src="" alt="artist image"/>
+                    </div>
+                </body>
+            </html>

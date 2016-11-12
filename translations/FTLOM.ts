@@ -4,23 +4,31 @@
 <context>
     <name>Artists</name>
     <message>
-        <location filename="../assets/pages/Artists.qml" line="83"/>
+        <location filename="../assets/pages/Artists.qml" line="84"/>
         <source>TRACK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/Artists.qml" line="89"/>
+        <location filename="../assets/pages/Artists.qml" line="90"/>
         <source>DEMAND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/Artists.qml" line="95"/>
+        <location filename="../assets/pages/Artists.qml" line="96"/>
         <source>Available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/Artists.qml" line="167"/>
+        <location filename="../assets/pages/Artists.qml" line="179"/>
         <source>Track</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HelpCenter</name>
+    <message>
+        <location filename="../assets/sheets/HelpCenter.qml" line="15"/>
+        <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -84,42 +92,32 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../assets/sheets/Settings.qml" line="61"/>
-        <source>Your Artists</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/sheets/Settings.qml" line="65"/>
+        <location filename="../assets/sheets/Settings.qml" line="52"/>
         <source>Edit Notification Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/sheets/Settings.qml" line="71"/>
+        <location filename="../assets/sheets/Settings.qml" line="58"/>
         <source>Share Us</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/sheets/Settings.qml" line="76"/>
+        <location filename="../assets/sheets/Settings.qml" line="63"/>
         <source>Rate In BlackBerry World</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/sheets/Settings.qml" line="79"/>
+        <location filename="../assets/sheets/Settings.qml" line="66"/>
         <source>Send Feedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/sheets/Settings.qml" line="83"/>
-        <source>Help Center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/sheets/Settings.qml" line="86"/>
+        <location filename="../assets/sheets/Settings.qml" line="70"/>
         <source>Privacy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/sheets/Settings.qml" line="98"/>
+        <location filename="../assets/sheets/Settings.qml" line="86"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
@@ -135,22 +133,22 @@
 <context>
     <name>YourArtists</name>
     <message>
-        <location filename="../assets/pages/YourArtists.qml" line="89"/>
+        <location filename="../assets/pages/YourArtists.qml" line="91"/>
         <source>TRACKING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/YourArtists.qml" line="95"/>
+        <location filename="../assets/pages/YourArtists.qml" line="97"/>
         <source>DEMANDING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/YourArtists.qml" line="101"/>
+        <location filename="../assets/pages/YourArtists.qml" line="104"/>
         <source>Artists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/pages/YourArtists.qml" line="173"/>
+        <location filename="../assets/pages/YourArtists.qml" line="188"/>
         <source>Untrack</source>
         <translation type="unfinished"></translation>
     </message>
@@ -158,17 +156,17 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../assets/main.qml" line="33"/>
+        <location filename="../assets/main.qml" line="39"/>
         <source>Feed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="39"/>
+        <location filename="../assets/main.qml" line="45"/>
         <source>Add Artists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="45"/>
+        <location filename="../assets/main.qml" line="51"/>
         <source>Your Artists</source>
         <translation type="unfinished"></translation>
     </message>

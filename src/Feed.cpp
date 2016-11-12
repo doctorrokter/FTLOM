@@ -15,7 +15,7 @@ Feed::~Feed() {}
 void Feed::get() {
     Http* http = new Http(this);
 
-    const QString& urlStr = QString::fromLatin1("http://146.185.153.4:8082/fan/feed?access_token=%1").arg(m_ftlomData->getAccessToken());
+    const QString& urlStr = m_ftlomData->getApiUrl() + QString::fromLatin1("/fan/feed?access_token=%1").arg(m_ftlomData->getAccessToken());
 
     bool ok = connect(http, SIGNAL(complete(const QString&, bool)), this, SLOT(onFeed(const QString&, bool)));
     Q_ASSERT(ok);

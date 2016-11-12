@@ -31,6 +31,7 @@ TitleBar {
                 textStyle.color: Color.Black
             }
             ImageView {
+                filterColor: Color.Black
                 imageSource: "asset:///img/ic_search.png"
                 horizontalAlignment: HorizontalAlignment.Right
                 verticalAlignment: VerticalAlignment.Center
